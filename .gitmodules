@@ -1,0 +1,3 @@
+[submodule "axelor-open-suite"]
+	path = modules/inspection-aos
+	url = ../inspection-aos.git

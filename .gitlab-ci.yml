@@ -1,0 +1,54 @@
+stages:
+  - build_and_deploy
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  GRADLE_USER_HOME: "${CI_PROJECT_DIR}/.gradle"
+  GRADLE_OPTS: >
+    -Dorg.gradle.daemon=false
+    -Xmx2g
+    -Dorg.gradle.parallel=true
+    -Dorg.gradle.workers.max=4
+    -Dorg.gradle.vfs.watch=false
+
+  DEV_HOST: "192.168.250.232"
+  SSH_USER: "eoadm"
+  REMOTE_WEBAPPS_DIR: "/home/eoadm/projects/axelor/webapps"
+  CONTAINER_NAME: "axelor_app"
+  TARGET_WAR_NAME: "inspection.war"
+
+cache:
+  key: "gradle-cache-v1"
+  paths:
+    - .gradle/caches
+    - .gradle/wrapper
+
+deploy_to_dev:
+  stage: build_and_deploy
+  image: gradle:7-jdk11
+  tags:
+    - docker
+  when: manual
+  allow_failure: false
+  before_script:
+    - |
+      apt-get update -y && apt-get install -y openssh-client
+      eval $(ssh-agent -s)
+      echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+      mkdir -p ~/.ssh && chmod 700 ~/.ssh
+      echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - |
+      echo "--- STEP 1: ASSEMBLE WAR ---"
+      chmod +x gradlew
+      ./gradlew clean assemble -x test --no-daemon --parallel --console=plain
+      echo "--- STEP 2: LOCATE WAR FILE ---"
+      WAR_FILE=$(find build/libs -name "*.war" | head -n 1)
+      if [ -z "$WAR_FILE" ]; then echo "Error: WAR file not found!"; exit 1; fi
+      echo "--- STEP 3: DEPLOYING TO SERVER ---"
+      ssh $SSH_USER@$DEV_HOST "docker run --rm -v $REMOTE_WEBAPPS_DIR:/cleanup alpine rm -rf /cleanup/inspection /cleanup/$TARGET_WAR_NAME"
+      scp $WAR_FILE $SSH_USER@$DEV_HOST:$REMOTE_WEBAPPS_DIR/$TARGET_WAR_NAME
+      ssh $SSH_USER@$DEV_HOST "docker restart $CONTAINER_NAME"
+      echo "DEPLOY SUCCESSFUL!"
+  only:
+    - dev
