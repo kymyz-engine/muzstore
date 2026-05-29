@@ -10,7 +10,6 @@ import com.axelor.db.Query;
 import com.google.inject.Inject;
 
 public class CartServiceImpl implements CartService {
-
     private final CartRepository repo;
 
     @Inject

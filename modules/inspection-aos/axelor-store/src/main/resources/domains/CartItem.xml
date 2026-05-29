@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.1.xsd">
+
+    <module name="store" package="com.axelor.apps.store.db"/>
+    <entity name="CartItem">
+        <many-to-one name="cart" ref="com.axelor.apps.store.db.Cart"
+                     required="true" column="cart_id"/>
+
+        <many-to-one name="product" ref="com.axelor.apps.store.db.StoreProduct"
+                     required="true" column="product_id"/>
+
+        <integer name="quantity" required="true" default="1" min="1"/>
+    </entity>
+
+</domain-models>

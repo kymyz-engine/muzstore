@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
+
+  <menuitem name="store-main-menu-item" title="Store" icon="fa-id-badge"
+    icon-background="deeppurple" order="1"/>
+
+
+  <menuitem name="brands-menu-item" title="Brands" parent="store-main-menu-item"
+    icon="fa-id-badge" icon-background="deeppurple" order="1" action="brands-action-view"/>
+  <action-view name="brands-action-view" title="Brand"
+    model="com.axelor.apps.store.db.Brand">
+    <view type="grid" name="brands-grid"/>
+    <view type="form" name="brands-form"/>
+  </action-view>
+
+
+  <menuitem name="category-menu-item" title="Category" parent="store-main-menu-item"
+    icon="fa-id-badge" icon-background="deeppurple" order="1" action="category-action-view"/>
+  <action-view name="category-action-view" title="Category"
+    model="com.axelor.apps.store.db.Category">
+    <view type="grid" name="category-grid"/>
+    <view type="form" name="category-form"/>
+  </action-view>
+
+
+  <menuitem name="product-menu-item" title="Product" parent="store-main-menu-item"
+    icon="fa-id-badge" icon-background="deeppurple" order="1" action="product-action-view"/>
+  <action-view name="product-action-view" title="Product"
+    model="com.axelor.apps.store.db.StoreProduct">
+    <view type="grid" name="store-product-grid"/>
+    <view type="form" name="store-product-form"/>
+  </action-view>
+
+
+  <menuitem name="spec-menu-item" title="Spec" parent="store-main-menu-item"
+    icon="fa-id-badge" icon-background="deeppurple" order="1" action="spec-action-view"/>
+  <action-view name="spec-action-view" title="Spec"
+    model="com.axelor.apps.store.db.ProductSpec">
+    <view type="grid" name="spec-grid"/>
+    <view type="form" name="spec-form"/>
+  </action-view>
+
+</object-views>

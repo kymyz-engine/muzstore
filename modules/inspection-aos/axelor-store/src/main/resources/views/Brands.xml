@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
+
+    <grid name="brands-grid" title="Brands" model="com.axelor.apps.store.db.Brand">
+        <field name="name"/>
+        <field name="country"/>
+    </grid>
+
+    <form name="brands-form" title="Brand" model="com.axelor.apps.store.db.Brand" width="large">
+        <panel>
+            <field name="name"/>
+            <field name="country"/>
+        </panel>
+    </form>
+
+</object-views>
