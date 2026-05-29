@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
+
+  <grid name="store-product-grid" title="Products" model="com.axelor.apps.store.db.StoreProduct">
+    <field name="name"/>
+    <field name="slug"/>
+    <field name="description"/>
+    <field name="image"/>
+    <field name="brand"/>
+    <field name="price"/>
+    <field name="oldPrice"/>
+    <field name="rating"/>
+    <field name="inStock"/>
+    <field name="badge"/>
+    <field name="specs"/>
+  </grid>
+
+  <form name="store-product-form" title="Product" model="com.axelor.apps.store.db.StoreProduct" width="large">
+    <panel>
+      <field name="name"/>
+      <field name="slug"/>
+      <field name="description"/>
+      <field name="image"/>
+      <field name="brand"/>
+      <field name="price"/>
+      <field name="badge"/>
+      <field name="oldPrice" showIf="badge == 'sale'" requiredIf="badge == 'sale'"/>
+      <field name="inStock"/>
+      <field name="specs">
+        <editor>
+          <field name="specKey" title="Characteristic" />
+          <field name="specValue" title="Value" />
+        </editor>
+      </field>
+    </panel>
+  </form>
+
+</object-views>

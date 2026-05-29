@@ -1,0 +1,161 @@
+[33m26406bb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32motts-dev[m[33m, [m[1;31morigin/otts-dev[m[33m)[m remove fields and dependencies
+[33m8eac078[m change sbkts report
+[33m412138f[m change rpt
+[33m8632475[m tunduk
+[33maa98221[m integration tunduk
+[33me354c98[m change view
+[33m6dd1302[m set brancd to template
+[33mfa12c65[m fixed pagination for SBKTS and REESTR
+[33mf2cc0f0[m added andpoint for cheching captcha token and save it at context
+[33m04608d0[m transmisson
+[33mf02a2a5[m TireCharacteristicsDTO
+[33m1ac3e9c[m change col span
+[33md54ce26[m приложение 3
+[33m891af4c[m Merge remote-tracking branch 'origin/otts-dev' into otts-dev
+[33m709c05c[m Merge branch 'otts-dev-modification-update' into 'otts-dev'
+[33me1212c1[m Merge branch 'dev' of gitlab-eo.trade.kg:trade/inspection-aos into otts-dev
+[33m5c1a81f[m Merge branch 'dev-enotoken' into 'dev'
+[33m4529826[m fixed some bugs with enotoken
+[33m8a0a946[m Merge branch 'dev' of gitlab-eo.trade.kg:trade/inspection-aos into otts-dev
+[33m926a170[m Merge branch 'dev-enotoken' into 'dev'
+[33m8a68705[m added signing with enotoken
+[33md0360f8[m Merge branch 'dev' of gitlab-eo.trade.kg:trade/inspection-aos into otts-dev
+[33m5895734[m Merge branch 'dev-enotoken' into 'dev'
+[33m9ea6087[m Merge branch 'dev' of gitlab-eo.trade.kg:trade/inspection-aos into otts-dev
+[33m47fc53f[m change otts pdf
+[33m9b16a19[m added signing with enotoken
+[33m45a8ce7[m added signing with enotoken
+[33m2c47b58[m reestr
+[33mb7e9ab2[m Modificated mappers to correct imagination at pdf report
+[33mf50e1a8[m Modificated mappers to correct imagination at pdf report
+[33m58b6c34[m added fields for Modification forms and models
+[33m512009e[m Merge branch 'otts-dev' of gitlab-eo.trade.kg:trade/inspection-aos into otts-dev
+[33m4c7a97c[m set additional information mapper
+[33mce87bf5[m Merge branch 'dev-sbkts-simbol-validation' into 'dev'
+[33m2a5f84f[m Merge branch 'otts-dev-permissions' into 'otts-dev'
+[33m0eebf84[m updated auth_roles
+[33m0626389[m Merge branch 'otts-dev-save-registered-person' into 'otts-dev'
+[33me17f4a5[m added permissions for every entity what started from Modification
+[33m015ae02[m Revert "added permissions for every entity what started from Modification"
+[33m7390c1e[m added permissions for every entity what started from Modification
+[33mf89bd08[m ExhaustCharacteristicsDTO finish pdf
+[33m7f74ef7[m fix resend expert
+[33mfba684c[m fixed roles
+[33m8b915f8[m Merge branch 'otts-dev' of gitlab-eo.trade.kg:trade/inspection-aos into otts-dev
+[33m152a084[m ExhaustCharacteristicsDTO finish
+[33ma437c68[m added button to save registerd persons
+[33ma73b0c6[m updated action-check-modification
+[33m0d50f14[m Merge branch 'application-1' into 'otts-dev'
+[33m9d6e9e5[m added conditions
+[33m42f9dda[m added conditions
+[33m7303bc7[m change subdivision view
+[33m8d1ccd3[m Fix VIN duplicate check: allow VIN reuse when SBKTS is rejectedByExpert
+[33m3581c70[m Fix VIN duplicate check: allow VIN reuse when SBKTS is rejectedByExpert
+[33md74b842[m added validation for symbols for Vehicle view(if we will enter at text fields only symbols without letters we can't save our sbkts)
+[33m1e9a490[m FuelSupplySystemCharacteristic finish
+[33mf07264f[m Merge branch 'unique' into 'otts-dev'
+[33m1be55ad[m added otts messages
+[33m5c48a8b[m fixed check duplicate
+[33m65e5284[m added check duplicate
+[33md019129[m Merge branch 'application-2' into 'otts-dev'
+[33mf9d841a[m Merge branch 'otts-dev' into application-2
+[33m11413fb[m fixed modificationsCodes
+[33m40ec8cd[m Merge branch 'otts-dev' of gitlab-eo.trade.kg:trade/inspection-aos into otts-dev
+[33m2511add[m EngineCharacteristicsDTO and birt
+[33mac57549[m EngineCharacteristicsDTO and birt
+[33mc356782[m fixed modification image
+[33m0aac005[m updated modification image
+[33mf64168b[m removed unused controller
+[33m29519bd[m updated modification image
+[33ma1012f3[m added attribute required
+[33m6d76fd1[m Merge branch 'panel-tabs' into 'otts-dev'
+[33maea5818[m renamed panel tabs
+[33mc6d3a99[m Merge branch 'button-next' into 'otts-dev'
+[33m58bdbb4[m added condition to next button
+[33m6e5a03e[m MassCharacteristicsDTO finish
+[33mf78f172[m Merge branch 'fields' into 'otts-dev'
+[33mc001353[m added required conditions
+[33mccce616[m added show and required conditions
+[33mda482ec[m added show and required conditions
+[33mb74ace0[m Merge branch 'otts-dev-subdivision' into 'otts-dev'
+[33m3476527[m added to menu subdivisions
+[33m8848112[m updated mass
+[33mf4a9e28[m Merge branch 'fix-template' into 'otts-dev'
+[33m7f5d728[m fixed template
+[33m453d830[m Merge branch 'otts-dev-charter-regulation' into 'otts-dev'
+[33mc00cc47[m Merge branch 'otts-dev' into 'otts-dev-charter-regulation'
+[33m9e3e05b[m fixed some disadvantages at code
+[33mb86f627[m fixed some disadvantages at code
+[33mffeb503[m added text field for entering charter or regulation at contract html template
+[33m42e6dfc[m Merge branch 'fix-otts' into 'otts-dev'
+[33m1d057e1[m fixed bug in view
+[33mfcfd5dc[m Merge branch 'mod-v2' into 'otts-dev'
+[33mec0b1dd[m Merge branch 'otts-dev' into mod-v2
+[33m8051aa2[m Merge branch 'otts-dev-text-distance-fix' into 'otts-dev'
+[33me716410[m fixed distance between text at html
+[33me6d6389[m added messages
+[33m05b2ab9[m fixed distance between text at html for contract
+[33m922acb2[m added new domains and views
+[33mb4c2182[m Merge branch 'otts-dev' of gitlab-eo.trade.kg:trade/inspection-aos into otts-dev
+[33madac3be[m General Characteristics
+[33m40c1125[m added fuel supply system
+[33m91883ea[m Merge branch 'mod-v2' into 'otts-dev'
+[33m92514de[m added engine
+[33m09fcf7f[m added engine
+[33m0cc50f3[m added transmission
+[33m9083989[m added transmission
+[33m6cf3075[m added transmission
+[33mc0decec[m added messages
+[33mdc8d35f[m added chassis
+[33m7a42870[m added tire
+[33me6f7ece[m added brake
+[33m45367b5[m added equipment
+[33m63a5e54[m Merge branch 'mod-v2' into 'otts-dev'
+[33mc8431da[m fixed otts template
+[33m0827533[m updated view and messages
+[33m52281b5[m change logic
+[33m67fffc6[m set auto unit
+[33m13b90df[m Merge branch 'mod' into 'otts-dev'
+[33m3e335a4[m changed structure
+[33m723a17b[m Merge branch 'San' into 'otts-dev'
+[33m23290be[m change logic
+[33m1a859bb[m section 1 finish
+[33m4a7f5cd[m Merge branch 'fix-report' into 'otts-dev'
+[33m241963f[m Merge branch 'otts-report' into 'otts-dev'
+[33m56e2925[m added messages
+[33mf93e398[m updated OTTS
+[33m0dc4a92[m Merge branch 'otts-dev' of http://gitlab-eo.trade.kg/trade/inspection-aos into San
+[33m640543f[m added filter and report for Otts
+[33m4f161c7[m Merge branch 'template' into 'otts-dev'
+[33m4d56fc9[m updated template
+[33m55663c4[m added new seq
+[33m39ea922[m updated contract
+[33m74a1381[m added auto create contract
+[33m734f3ae[m updated otts template
+[33m9207375[m added otts template
+[33m3cd9a29[m Merge branch 'vin-generate' into 'otts-dev'
+[33md2b00e9[m updated Vin Generator
+[33m5e475dd[m updated Vin Generator
+[33m9c556c2[m added fields
+[33m3958326[m Merge branch 'refactoring' into 'otts-dev'
+[33m726588f[m updated otts-grid
+[33ma7a06a9[m refactoring
+[33mf2f3e2b[m Merge branch 'templates' into 'otts-dev'
+[33mfcbf801[m Merge branch 'dev-deleting-template-past-mark-update' into 'dev'
+[33m1d23935[m Merge branch 'menu' into 'otts-dev'
+[33me05a917[m Merge branch 'fill-otts' into 'otts-dev'
+[33m6b5628b[m added otts template form
+[33m6a8a8e2[m refactoring
+[33me2f4475[m refactoring
+[33mbd6658c[m added messages
+[33mfcbcd08[m updated Menu
+[33m159b202[m optimize import
+[33mf5fdddb[m updated OTTS view
+[33mf18ec17[m added transactional
+[33m38af1c1[m updated first step validation
+[33m6a33328[m add button for deleting template from edit page, and fixed ignoring filed mark at updating template.
+[33m67fc917[m added service
+[33md0a8f15[m added panel visibility
+[33mc870fa0[m Merge branch 'otts-dev' of http://gitlab-eo.trade.kg/trade/inspection-aos into San
+[33m7699cf8[m added buttons
+[

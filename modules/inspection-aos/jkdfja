@@ -1,0 +1,18 @@
+[33m3bfe075[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnew_a[m[33m, [m[1;31morigin/new_a[m[33m)[m HEAD@{0}: merge origin/new_a: Fast-forward
+[33mfedc31d[m HEAD@{1}: commit (merge): Merge remote-tracking branch 'origin/new_a' into new_a
+[33m02af317[m HEAD@{2}: commit: fix commit
+[33m6e81a8c[m HEAD@{3}: commit: all changes
+[33m177cfb8[m HEAD@{4}: commit: add transmission gearRatio
+[33m25c543f[m HEAD@{5}: commit: commit 17.03.26
+[33m706ee41[m HEAD@{6}: checkout: moving from otts-dev to new_a
+[33m10c41c2[m[33m ([m[1;32motts-dev[m[33m)[m HEAD@{7}: revert: Revert "remove fields and dependencies"
+[33m26406bb[m HEAD@{8}: checkout: moving from new_a to otts-dev
+[33m706ee41[m HEAD@{9}: cherry-pick: remove fields and dependencies
+[33m8eac078[m HEAD@{10}: checkout: moving from otts-dev to new_a
+[33m26406bb[m HEAD@{11}: commit: remove fields and dependencies
+[33m8eac078[m HEAD@{12}: checkout: moving from new_a to otts-dev
+[33m8eac078[m HEAD@{13}: checkout: moving from otts-dev to new_a
+[33m8eac078[m HEAD@{14}: checkout: moving from otts-dev to otts-dev
+[33m8eac078[m HEAD@{15}: branch: Reset to origin/otts-dev
+[33m8eac078[m HEAD@{16}: checkout: moving from dev to otts-dev
+[33m10f4a23[m[33m ([m[1;31morigin/dev[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mdev[m[33m)[m HEAD@{17}: clone: from https://gitlab-eo.trade.kg/trade/INSPECTION/inspection-aos.git

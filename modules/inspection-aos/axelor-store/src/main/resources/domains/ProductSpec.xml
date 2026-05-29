@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.1.xsd">
+
+    <module name="store" package="com.axelor.apps.store.db"/>
+    <entity name="ProductSpec">
+        <many-to-one name="product" ref="com.axelor.apps.store.db.StoreProduct"
+                     required="true" column="product_id"/>
+
+        <string name="specKey"   required="true" max="255" />
+        <string name="specValue" required="true" max="512" />
+    </entity>
+
+</domain-models>

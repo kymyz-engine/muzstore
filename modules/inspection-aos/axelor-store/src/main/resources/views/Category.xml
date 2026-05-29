@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
+
+  <grid name="category-grid" title="Categories" model="com.axelor.apps.store.db.Category">
+    <field name="name"/>
+    <field name="slug"/>
+    <field name="icon"/>
+  </grid>
+
+  <form name="category-form" title="Category" model="com.axelor.apps.store.db.Category"
+    width="large">
+    <panel>
+      <field name="name"/>
+      <field name="slug"/>
+      <field name="icon"/>
+    </panel>
+  </form>
+
+</object-views>
