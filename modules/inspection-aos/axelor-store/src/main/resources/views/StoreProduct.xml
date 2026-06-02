@@ -24,6 +24,7 @@
       <field name="description"/>
       <field name="image"/>
       <field name="brand"/>
+      <field name="category"/>
       <field name="price"/>
       <field name="badge"/>
       <field name="oldPrice" showIf="badge == 'sale'" requiredIf="badge == 'sale'"/>

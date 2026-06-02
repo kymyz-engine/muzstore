@@ -819,4 +819,10 @@
     <option value="1">Active trading name</option>
   </selection>
 
+  <selection name="product.badge.selection">
+    <option value="hit">Хит</option>
+    <option value="new">Новинка</option>
+    <option value="sale">Скидка</option>
+  </selection>
+
 </object-views>
