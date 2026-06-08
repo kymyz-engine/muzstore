@@ -5,12 +5,8 @@
 
     <module name="store" package="com.axelor.apps.store.db"/>
     <entity name="CartItem">
-        <many-to-one name="cart" ref="com.axelor.apps.store.db.Cart"
-                     required="true" column="cart_id"/>
-
-        <many-to-one name="product" ref="com.axelor.apps.store.db.StoreProduct"
-                     required="true" column="product_id"/>
-
+        <many-to-one name="cart" ref="com.axelor.apps.store.db.Cart" required="true" column="cart_id"/>
+        <many-to-one name="product" ref="com.axelor.apps.store.db.StoreProduct" required="true" column="product_id"/>
         <integer name="quantity" required="true" default="1" min="1"/>
     </entity>
 

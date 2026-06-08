@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.1.xsd">
+
+    <module name="store" package="com.axelor.apps.store.db"/>
+    <entity name="StoreOrder">
+        <many-to-one name="user" ref="com.axelor.auth.db.User" required="true" column="user_id"/>
+        <one-to-many name="items" ref="com.axelor.apps.store.db.StoreOrderItem" mappedBy="storeOrder"/>
+        <!-- Контактные данные -->
+        <string name="name" column="first_name" max="100"/>
+        <string name="phone" max="20"/>
+        <string name="email" max="255"/>
+        <string name="address" max="500"/>
+        <string name="deliveryComment" max="500"/>
+        <string name="deliveryType" selection="order.delivery.type.selection" max="20"/>
+        <decimal name="totalPrice"/>
+        <string name="status" selection="order.status.selection" default="pending" max="20"/>
+    </entity>
+
+</domain-models>

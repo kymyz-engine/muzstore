@@ -3,10 +3,10 @@ package com.axelor.apps.store.controller;
 import com.axelor.apps.base.service.exception.TraceBackService;
 import com.axelor.apps.store.db.Category;
 import com.axelor.apps.store.db.StoreProduct;
-import com.axelor.apps.store.dto.CartDTO;
-import com.axelor.apps.store.dto.ProductDTO;
+import com.axelor.apps.store.dto.*;
 import com.axelor.apps.store.mappers.Mappers;
 import com.axelor.apps.store.service.CartService;
+import com.axelor.apps.store.service.OrderService;
 import com.axelor.apps.store.service.ProductService;
 import com.axelor.apps.store.service.StoreService;
 import com.axelor.auth.AuthUtils;
@@ -29,19 +29,24 @@ public class PublicWebService {
     private final StoreService storeService;
     private final ProductService productService;
     private final CartService cartService;
+    private final OrderService orderService;
 
     @Inject
-    public PublicWebService(StoreService storeService, ProductService productService, CartService cartService) {
+    public PublicWebService(StoreService storeService, ProductService productService, CartService cartService, OrderService orderService) {
         this.storeService = storeService;
         this.productService = productService;
         this.cartService = cartService;
+        this.orderService = orderService;
     }
 
     @GET
     @Path("/categories")
     public Response getCategoriesList(@Context HttpServletRequest request) {
         List<Category> categories = storeService.getCategoriesList();
-        return Response.ok(categories).build();
+        List<CategoryDTO> result = categories.stream()
+                .map(Mappers::toCategoryDto)
+                .collect(Collectors.toList());
+        return Response.ok(result).build();
     }
 
     @GET
@@ -85,6 +90,86 @@ public class PublicWebService {
             User user = AuthUtils.getUser();
             CartDTO cart = cartService.getCart(user);
             return Response.ok(cart).build();
+        } catch (Exception e) {
+            TraceBackService.trace(e);
+            return Response.status(500).entity(Map.of("message", e.getMessage())).build();
+        }
+    }
+
+    @POST
+    @Path("/cart/items")
+    public Response addItem(@QueryParam("productId") Long productId,
+                            @QueryParam("quantity") Integer quantity) {
+        try {
+            User user = AuthUtils.getUser();
+            CartDTO cart = cartService.addItem(user, productId, quantity != null ? quantity : 1);
+            return Response.ok(cart).build();
+        } catch (Exception e) {
+            TraceBackService.trace(e);
+            return Response.status(500).entity(Map.of("message", e.getMessage())).build();
+        }
+    }
+
+    @PUT
+    @Path("/cart/items/{itemId}")
+    public Response updateQuantity(@PathParam("itemId") Long itemId,
+                                   @QueryParam("quantity") Integer quantity) {
+        try {
+            User user = AuthUtils.getUser();
+            CartDTO cart = cartService.updateQuantity(user, itemId, quantity);
+            return Response.ok(cart).build();
+        } catch (Exception e) {
+            TraceBackService.trace(e);
+            return Response.status(500).entity(Map.of("message", e.getMessage())).build();
+        }
+    }
+
+    @DELETE
+    @Path("/cart/items/{itemId}")
+    public Response removeItem(@PathParam("itemId") Long itemId) {
+        try {
+            User user = AuthUtils.getUser();
+            CartDTO cart = cartService.removeItem(user, itemId);
+            return Response.ok(cart).build();
+        } catch (Exception e) {
+            TraceBackService.trace(e);
+            return Response.status(500).entity(Map.of("message", e.getMessage())).build();
+        }
+    }
+
+    @DELETE
+    @Path("/cart")
+    public Response clearCart() {
+        try {
+            User user = AuthUtils.getUser();
+            cartService.clearCart(user);
+            return Response.ok(Map.of("message", "Корзина очищена")).build();
+        } catch (Exception e) {
+            TraceBackService.trace(e);
+            return Response.status(500).entity(Map.of("message", e.getMessage())).build();
+        }
+    }
+    
+    @POST
+    @Path("/orders")
+    public Response createOrder(OrderCreateDTO dto) {
+        try {
+            User user = AuthUtils.getUser();
+            StoreOrderDTO order = orderService.createOrder(user, dto);
+            return Response.ok(order).build();
+        } catch (Exception e) {
+            TraceBackService.trace(e);
+            return Response.status(500).entity(Map.of("message", e.getMessage())).build();
+        }
+    }
+
+    @GET
+    @Path("/orders")
+    public Response getOrders() {
+        try {
+            User user = AuthUtils.getUser();
+            List<StoreOrderDTO> orders = orderService.getOrders(user);
+            return Response.ok(orders).build();
         } catch (Exception e) {
             TraceBackService.trace(e);
             return Response.status(500).entity(Map.of("message", e.getMessage())).build();

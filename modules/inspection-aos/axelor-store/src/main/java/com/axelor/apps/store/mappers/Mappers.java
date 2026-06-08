@@ -1,12 +1,7 @@
 package com.axelor.apps.store.mappers;
 
-import com.axelor.apps.store.db.Cart;
-import com.axelor.apps.store.db.CartItem;
-import com.axelor.apps.store.db.ProductSpec;
-import com.axelor.apps.store.db.StoreProduct;
-import com.axelor.apps.store.dto.CartDTO;
-import com.axelor.apps.store.dto.CartItemDTO;
-import com.axelor.apps.store.dto.ProductDTO;
+import com.axelor.apps.store.db.*;
+import com.axelor.apps.store.dto.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -37,6 +32,15 @@ public class Mappers {
         return dto;
     }
 
+    public static CategoryDTO toCategoryDto(Category c) {
+        CategoryDTO dto = new CategoryDTO();
+        dto.setId(c.getSlug());
+        dto.setName(c.getName());
+        dto.setIcon(c.getIcon());
+        dto.setCount(c.getProducts() != null ? c.getProducts().size() : 0);
+        return dto;
+    }
+
     public static CartItemDTO toCartItemDto(CartItem item) {
         CartItemDTO dto = new CartItemDTO();
         dto.id       = item.getId();
@@ -58,6 +62,35 @@ public class Mappers {
         dto.totalPrice = dto.items.stream()
                 .map(i -> i.subtotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+        return dto;
+    }
+
+
+    public static StoreOrderDTO toOrderDto(StoreOrder order) {
+        StoreOrderDTO dto = new StoreOrderDTO();
+        dto.id = order.getId();
+        dto.status = order.getStatus();
+        dto.phone = order.getPhone();
+        dto.email = order.getEmail();
+        dto.address = order.getAddress();
+        dto.deliveryType = order.getDeliveryType();
+        dto.totalPrice = order.getTotalPrice();
+        dto.items = order.getItems() == null
+                ? new ArrayList<>()
+                : order.getItems().stream()
+                .map(Mappers::toOrderItemDto)
+                .collect(Collectors.toList());
+        return dto;
+    }
+
+    public static StoreOrderItemDTO toOrderItemDto(StoreOrderItem item) {
+        StoreOrderItemDTO dto = new StoreOrderItemDTO();
+        dto.id           = item.getId();
+        dto.productName  = item.getProduct().getName();
+        dto.productBrand = item.getProduct().getBrand() != null ? item.getProduct().getBrand().getName() : null;
+        dto.quantity     = item.getQuantity();
+        dto.price        = item.getPrice();
+        dto.subtotal     = item.getSubtotal();
         return dto;
     }
 }

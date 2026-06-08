@@ -10,18 +10,18 @@
         <string name="description" large="true"/>
         <string name="image" max="1024"/>
 
-        <many-to-one name="category" ref="com.axelor.apps.store.db.Category" required="true" column="category_id"/>
-        <many-to-one name="brand" ref="com.axelor.apps.store.db.Brand" column="brand_id"/>
+        <many-to-one name="category" ref="com.axelor.apps.store.db.Category" required="true"/>
+        <many-to-one name="brand" ref="com.axelor.apps.store.db.Brand"/>
 
         <decimal name="price" required="true" min="0"/>
-        <decimal name="oldPrice" column="old_price" min="0"/>
+        <decimal name="oldPrice" min="0"/>
+        <decimal name="pricePerDay" min="0"/>
 
         <decimal name="rating" min="0" max="5" default="0"/>
-        <integer name="reviewCount" column="review_count" default="0"/>
-        <boolean name="inStock" column="inStock" default="0"/>
+        <integer name="reviewCount" default="0"/>
+        <boolean name="inStock" default="0"/>
 
         <string name="badge" selection="product.badge.selection" max="10"/>
-
         <one-to-many name="specs" ref="com.axelor.apps.store.db.ProductSpec" mappedBy="product"/>
 
         <unique-constraint columns="slug"/>

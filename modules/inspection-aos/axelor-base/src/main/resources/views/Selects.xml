@@ -825,4 +825,16 @@
     <option value="sale">Скидка</option>
   </selection>
 
+  <selection name="order.delivery.type.selection">
+    <option value="courier"  title="Курьер"/>
+    <option value="pickup"   title="Самовывоз"/>
+  </selection>
+
+  <selection name="order.status.selection">
+    <option value="pending"    title="Ожидает"/>
+    <option value="confirmed"  title="Подтверждён"/>
+    <option value="delivered"  title="Доставлен"/>
+    <option value="cancelled"  title="Отменён"/>
+  </selection>
+
 </object-views>

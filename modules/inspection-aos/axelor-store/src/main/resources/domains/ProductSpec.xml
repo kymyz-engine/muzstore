@@ -5,9 +5,7 @@
 
     <module name="store" package="com.axelor.apps.store.db"/>
     <entity name="ProductSpec">
-        <many-to-one name="product" ref="com.axelor.apps.store.db.StoreProduct"
-                     required="true" column="product_id"/>
-
+        <many-to-one name="product" ref="com.axelor.apps.store.db.StoreProduct" required="true" column="product_id"/>
         <string name="specKey"   required="true" max="255" />
         <string name="specValue" required="true" max="512" />
     </entity>

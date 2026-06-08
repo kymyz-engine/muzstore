@@ -4,12 +4,13 @@
                xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.1.xsd">
 
     <module name="store" package="com.axelor.apps.store.db"/>
-    <entity name="Category">
-        <string name="name" required="true" max="255"/>
-        <string name="slug" required="true" unique="true" max="100"/>
-        <string name="icon"/>
-        <one-to-many name="products" ref="com.axelor.apps.store.db.StoreProduct" mappedBy="category"/>
-        <unique-constraint columns="slug"/>
+    <entity name="StoreOrderItem">
+        <many-to-one name="storeOrder" ref="com.axelor.apps.store.db.StoreOrder" required="true"/>
+        <many-to-one name="product" ref="com.axelor.apps.store.db.StoreProduct" required="true"/>
+
+        <integer name="quantity" required="true" default="1"/>
+        <decimal name="price" required="true"/>
+        <decimal name="subtotal" required="true"/>
     </entity>
 
 </domain-models>

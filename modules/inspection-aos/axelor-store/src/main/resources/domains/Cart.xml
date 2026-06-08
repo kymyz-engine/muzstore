@@ -5,12 +5,8 @@
 
     <module name="store" package="com.axelor.apps.store.db"/>
     <entity name="Cart">
-        <many-to-one name="user" ref="com.axelor.auth.db.User"
-                     required="true" column="user_id"/>
-
-        <one-to-many name="items" ref="com.axelor.apps.store.db.CartItem"
-                     mappedBy="cart"/>
-
+        <many-to-one name="user" ref="com.axelor.auth.db.User" required="true" column="user_id"/>
+        <one-to-many name="items" ref="com.axelor.apps.store.db.CartItem" mappedBy="cart"/>
         <string name="status" selection="cart.status.selection" default="active" max="20"/>
     </entity>
 
