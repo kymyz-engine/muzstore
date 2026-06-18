@@ -46,7 +46,11 @@ public class PublicWebService {
         List<CategoryDTO> result = categories.stream()
                 .map(Mappers::toCategoryDto)
                 .collect(Collectors.toList());
-        return Response.ok(result).build();
+        return Response.ok(result)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+                .header("Access-Control-Allow-Headers", "*")
+                .build();
     }
 
     @GET

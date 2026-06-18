@@ -12,6 +12,7 @@ import com.axelor.apps.store.service.CartService;
 import com.axelor.auth.db.User;
 import com.axelor.db.Query;
 import com.google.inject.Inject;
+import com.google.inject.persist.Transactional;
 
 public class CartServiceImpl implements CartService {
     private final CartRepository repo;
@@ -26,12 +27,14 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    @Transactional(rollbackOn = {Exception.class})
     public CartDTO getCart(User user) {
         Cart cart = getOrCreateCart(user);
         return Mappers.toCartDto(cart);
     }
 
     @Override
+    @Transactional(rollbackOn = {Exception.class})
     public CartDTO addItem(User user, Long productId, Integer quantity) {
         Cart cart = getOrCreateCart(user);
 
@@ -81,6 +84,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    @Transactional(rollbackOn = {Exception.class})
     public CartDTO removeItem(User user, Long itemId) {
         CartItem item = itemRepo.find(itemId);
 
@@ -95,6 +99,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    @Transactional(rollbackOn = {Exception.class})
     public void clearCart(User user) {
         Cart cart = getOrCreateCart(user);
 
@@ -107,6 +112,12 @@ public class CartServiceImpl implements CartService {
 
 
     private Cart getOrCreateCart(User user) {
+        if (user == null) {
+            user = Query.of(User.class)
+                    .filter("self.code = 'admin'")
+                    .fetchOne();
+        }
+
         Cart cart = Query.of(Cart.class)
                 .filter("self.user = :user AND self.status = 'active'")
                 .bind("user", user)

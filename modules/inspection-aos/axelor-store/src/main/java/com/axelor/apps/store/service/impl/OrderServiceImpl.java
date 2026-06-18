@@ -14,6 +14,7 @@ import com.axelor.apps.store.service.OrderService;
 import com.axelor.auth.db.User;
 import com.axelor.db.Query;
 import com.google.inject.Inject;
+import com.google.inject.persist.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(rollbackOn = {Exception.class})
     public StoreOrderDTO createOrder(User user, OrderCreateDTO dto) {
         Cart cart = Query.of(Cart.class)
                 .filter("self.user = :user AND self.status = 'active'")
